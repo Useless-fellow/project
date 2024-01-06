@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
-import Compose from"./Components/Compose/Compose";
+import Compose from"./Components/Compose";
 import Emailverify from "./Components/Emailverify/Emailverify";
 import GraphComp from "./Components/Graph/GraphComp";
 import Home from "./Components/Home/Home";
@@ -14,14 +14,19 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import ResetPassComp from "./Components/ResetPassComp/ResetPassComp";
 import Settings from "./Components/Settings/Settings";
 import Signup from "./Components/Signup/Signup";
-function App() {
+function App() 
+{
   const navigate = useNavigate();
-  useEffect(() => {
-    if (localStorage.getItem("x-Auth-token")) {
+  useEffect(() => 
+  {
+    if (localStorage.getItem("x-Auth-token")) 
+    {
       navigate("/")
     }
-  }, []);
-  return (
+  }, 
+  []);
+  return 
+  (
     <div className="App">
       <NavComp  />
       <Routes>
@@ -68,7 +73,8 @@ import  { BsFillSendCheckFill } from 'react-icons/bs'
 import {  useNavigate } from "react-router-dom";
 import {  useLocation, useNavigate } from "react-router-dom";
 
-const Compose = () => {
+const Compose = () => 
+{
   const [recepaintInfo, setRecepaintInfo] = useState([]);
   const [radioValue, setRadioValue] = useState("manual");
   const [enterFlag ,setEnterFlag] = useState(false)
@@ -76,13 +82,14 @@ const Compose = () => {
   const navigate = useNavigate();
   const da = useLocation();
 
-  const radios = [
+  const radios = 
+  [
     { name: "Manual send", value: "manual" },
-    const Compose = () => {
+     Compose = ( ) => 
+    {
       </div>
-      {radioValue === "manual" ? (
-        <ManualEmailCompose />
-         <ManualEmailCompose  reUse={da.state}/>
+      {radioValue = "manual" ? (
+        <><ManualEmailCompose /><ManualEmailCompose reUse={da.state} /></>
       ) : (
         <div
           className="d-flex justify-content-center align-items-center m-4 composestyle"
@@ -148,14 +155,13 @@ const Compose = () => {
 import { errorToast, toastSuccess } from "../../Services/tostify";
 import { formats, modules } from "./QuilData";
 import PreviewEmailsModals from "./ViewEmailsModal";
+</Form.Group>
 
 export function ManualEmailCompose() {
 export function ManualEmailCompose({reUse}) {
   const navigate = useNavigate();
-}
   const [enterFlag ,setEnterFlag] = useState(false)
   const contextData = useContext(Context);
-      }
   const init = {
   
   letinit = {
@@ -172,19 +178,18 @@ export function ManualEmailCompose({reUse}) {
   const {
     values,
     handleChange,
-  };
+  
 
 export function ManualEmailCompose() {
             placeholder="" 
-            onChange={handleChange}
+            {onChange}={handleChange}
             onBlur={handleBlur}
             value={values.subject}
             name='subject'
             isInvalid={errors.subject && touched.subject}
-          />
  export function ManualEmailCompose() {
             theme="snow"
-            modules={modules}
+            {modules}= modules
             formats={formats}
             value={values.htmlTemplate}
             placeholder="Type your Content to send"
@@ -197,7 +202,6 @@ export function ManualEmailCompose() {
               }
             }} 
             onBlur={(a,b,c)=>setFieldTouched('htmlTemplate',true)}
-          />
           {errors.htmlTemplate && touched.htmlTemplate && (
             <Form.Text
               className="text-start d-flex text-danger"
@@ -209,11 +213,10 @@ export function ManualEmailCompose() {
           <br />
           <Button type="submit">{enterFlag ? <ColorRingLoading />:<>Send <BsFillSendCheckFill /></>}</Button>
           <br />
-        </div>
           </form>
         <br />
       </div>
     </div>
-  );
+  ),
 }
   

@@ -18,8 +18,10 @@ import { useFormik } from "formik";
 import { ManualEmailCompose } from "./ManualEmailCompose";
 import * as yup from "yup";
 import { modules, formats } from "./QuilData";
+export 
 
-const Compose = () =>{
+ const Compose = () =>
+{
   const [value, setValue] = useState("");
   const [recepaintInfo, setRecepaintInfo] = useState([]);
   const [radioValue, setRadioValue] = useState("manual");
@@ -31,7 +33,8 @@ const Compose = () =>{
   ];
 
   const CustomButton = () => <span className="octicon octicon-star" />;
-  const CustomToolbar = () => (
+  const CustomToolbar = () => 
+  (
     <div id="toolbar">
       <select
         className="ql-header"
@@ -62,21 +65,28 @@ const Compose = () =>{
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
   ];
 
-  const handleFile = (e) => {
+  const handleFile = (e) => 
+  {
     let selectedFile = e.target.files[0];
     if (selectedFile) {
-      if (selectedFile && fileType.includes(selectedFile.type)) {
-        ExcelRenderer(selectedFile, (err, res) => {
-          if (err) {
+      if (selectedFile && fileType.includes(selectedFile.type)) 
+      {
+        ExcelRenderer(selectedFile, (err, res) => 
+        {
+          if (err)
+           {
             console.log(err);
-          } else {
+          } else 
+          {
             setRecepaintInfo(res.rows);
           }
         });
-      } else {
+      } else 
+      {
         errorToast("Please select only Excel file types");
       }
-    } else {
+    } else 
+    {
       console.log("select file");
     }
   };
@@ -92,7 +102,8 @@ const Compose = () =>{
   //yup validation:
   const userValidationSchema = yup.object().shape({});
 
-  const  modules = {
+  const  modules = 
+  {
     toolbar: [
       [{ header:'1' },{header:"2"}, {header:[3,4,5,6]},{font:[]}],
       [{size:[]}],
@@ -109,7 +120,8 @@ const Compose = () =>{
     'list', 'bullet', 'indent',
     'link', 'image','video','code-block'
   ]
-  const init = {
+  const init = 
+  {
     emails: "",
     subject: "",
     htmlTemplate: "",
@@ -121,12 +133,14 @@ const Compose = () =>{
     useFormik({
       initialValues: init,
       validateSchema: userValidationSchema,
-      onSubmit: (values) => {
+      onSubmit: (values) => 
+      {
         console.log(values);
       },
     });
 
-  return (
+  return 
+  (
     <div className='d-flex justify-content-center align-items-center' style={{height:"80vh"}}>
       <div className='border' style={{width:"1000px",height:"600px"}}>
         <h1>compose</h1>
@@ -138,18 +152,19 @@ const Compose = () =>{
         <div className="text-editor">
         {/* <CustomToolbar /> */}
         <ReactQuill theme="snow" value={value} onChange={setValue} modules={modules} formats={formats}/>   
-        {/* <EditorToolbar toolbarId={'t1'} />
-        <ReactQuill
+        {/* { <EditorToolbar toolbarId={'t1'} /> */}
+        {/* <ReactQuill
+        {
               theme="snow"
               value={value}
               onChange={setValue}
               placeholder={"Write something awesome..."}
               modules={modules('t1')}
               formats={formats}
-            />  */}
+            /> } */}
         {/* <QuillToolbar /> */}
         </div> 
-    <div>
+    </div>
       <div className="d-flex m-4" style={{ width: "95vw" }}>
         <ButtonGroup>
           {radios.map((radio, idx) => (
@@ -241,7 +256,5 @@ const Compose = () =>{
           </div>
         </div>
       )}
-    </div>
-    );
-   
-   }; export default Compose;
+            }
+            export default Compose
