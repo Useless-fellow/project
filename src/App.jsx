@@ -197,7 +197,8 @@ export function ManualEmailCompose() {
             onChange={(e,a,b,c)=>{
               if(c.getText().length ===1){
                 setFieldValue('htmlTemplate',"")
-              }else{
+              }else
+              {
                 setFieldValue('htmlTemplate',e)
               }
             }} 
